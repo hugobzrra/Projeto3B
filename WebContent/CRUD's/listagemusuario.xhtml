@@ -1,0 +1,43 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+
+	<h1 style="margin-top: 0; text-align: center; color: white;">CONFIRA A LISTA DE USUÁRIOS LOGO ABAIXO!</h1>
+
+		<h:form>
+			<p:dataTable var="usuario" value="#{UsuarioMBean.usuario}">
+			
+				<p:column headerText="Id">
+					<h:outputText value="#{usuario.id}"/>
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{usuario.nome}"/>
+				</p:column>
+
+				<p:column headerText="Email">
+					<h:outputText value="#{usuario.email}"/>
+				</p:column>
+			
+			</p:dataTable>
+			
+			<center>
+			<p:commandButton value="Remover Usuário"
+					action="#{UsuarioMBean.removeUsuario}">
+			</p:commandButton>
+			
+			<p:commandButton value="Atualizar Usuário"
+					action="#{atualizaUsuario}">
+			</p:commandButton>
+			</center>
+			
+		</h:form>
+		
+	</ui:define>
+
+</ui:composition>

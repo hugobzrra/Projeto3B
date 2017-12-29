@@ -1,0 +1,34 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+	
+	<h1 style="margin-top: 0; text-align: center; color: white;">FAÇA SEU CADASTRO NO FÃ CLUBE LOGO ABAIXO!</h1>
+	
+			<p:messages id="messages"/>
+			<center><p:panelGrid columns="10" cellpadding="15" id="panel-usuario">
+
+				<p:outputLabel for="nome" value="Nome:" />
+				<p:inputText id="nome" value="#{UsuarioMBean.usuario.nome}" required="true">
+					<f:validateRegex pattern="[a-zA-Z]{10,50}"/>
+				</p:inputText>
+				
+				<p:outputLabel for="email" value="Email:" />
+				<p:inputText id="email" value="#{UsuarioMBean.usuario.email}" required="true">
+					<f:validateLength minimum="50"/>
+				</p:inputText>
+					
+				<p:commandButton value="Cadastrar!" icon="ui-icon-star"
+					action="#{UsuarioMBean.cadastraUsuario}" update="messages">
+					<f:ajax event="click" execute="panel-usuario"/>
+				</p:commandButton>
+
+			</p:panelGrid></center>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,43 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+
+	<h1 style="margin-top: 0; text-align: center; color: white;">CONFIRA A LISTA DE DOADORES LOGO ABAIXO!</h1>
+
+		<h:form>
+			<p:dataTable var="usuario" value="#{UsuarioMBean.doadores}">
+			
+				<p:column headerText="Id">
+					<h:outputText value="#{doador.id}"/>
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{doador.nome}"/>
+				</p:column> 
+				
+				<p:column headerText="Valor">
+					<h:outputText value="#{doador.valor}"/>
+				</p:column>
+			
+			</p:dataTable>
+			
+			<center>
+			<p:commandButton value="Remover Doação"
+					action="#{DoadorMBean.removeDoador}">
+			</p:commandButton>
+			
+			<p:commandButton value="Atualizar Doação"
+					action="#{AtualizaDoador}">
+			</p:commandButton>
+			</center>
+			
+		</h:form>
+		
+	</ui:define>
+
+</ui:composition>

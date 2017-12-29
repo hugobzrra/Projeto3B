@@ -1,0 +1,33 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+
+	<h1 style="margin-top: 0; text-align: center; color: white;">FAÇA SUA DOAÇÃO LOGO ABAIXO!</h1>
+
+			<p:messages id="messages"/>
+			<center><p:panelGrid columns="10" style="text-align: center;" id="panel-doacao">
+
+				<p:outputLabel for="nome" value="Nome:" />
+				<p:inputText id="nome" value="#{UsuarioMBean.doador.nome}" required="true">
+					<f:validateRegex pattern="[a-zA-Z]{10,50}"/>
+				</p:inputText>
+
+				<p:outputLabel for="doacao" value="Valor:" />
+				<p:inputNumber id="doacao" value="#{UsuarioMBean.doador.valor}" required="true">
+					<f:validateDoubleRange minimum ="5.00" maximum ="1.000"/>
+                </p:inputNumber>  
+					
+				<p:commandButton value="Doar!" icon="ui-icon-star"
+					action="#{DoadorMBean.cadastraDoador}" update="messages">
+					<f:ajax event="click" execute="panel-doacao"/>
+				</p:commandButton>
+
+			</p:panelGrid></center>
+	</ui:define>
+
+</ui:composition>

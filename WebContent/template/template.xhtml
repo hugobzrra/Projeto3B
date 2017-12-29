@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Invocação do Mal</title>
+</h:head>
+<h:body style="background-image: url('/Projeto3B/Images/fundo.gif')">
+
+	<h:form id="form">
+	
+		<p:breadCrumb>
+			<p:menuitem value="Invocação do Mal"
+				url="http://localhost:8080/Projeto3B/publico/login.xhtml"/>
+			<p:menuitem value="Invocação do Mal 1"
+				url="http://www.adorocinema.com/filmes/filme-203607/"/>
+			<p:menuitem value="Invocação do Mal 2"
+				url="http://www.adorocinema.com/filmes/filme-222796/"/>
+			<p:menuitem value="Quer fazer parte do fã clube?"
+				url="http://localhost:8080/Projeto3B/CRUD's/cadastrousuario.xhtml"/>
+			<p:menuitem value="Confira a lista de fãs do clube!" 
+				url="http://localhost:8080/Projeto3B/CRUD's/listagemusuario.xhtml"/>
+			<p:menuitem value="Faça uma doação para o site!" 
+				url="http://localhost:8080/Projeto3B/CRUD's/cadastrodoador.xhtml"/>
+			<p:menuitem value="Confira a lista de doadores!" 
+				url="http://localhost:8080/Projeto3B/CRUD's/listagemdoador.xhtml"/>
+		</p:breadCrumb>
+		<br />
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:fieldset legend="Invocação do Mal" style="margin-bottom:20px">
+			<h:panelGrid columns="2" cellpadding="5">
+				<img src="/Projeto3B/Images/img1.jpg" />
+				<h:outputText
+					value="The Conjuring (em Portugal A Evocação e no Brasil, Invocação do Mal) é um filme do gênero 
+                terror dirigido por James Wan. Estrelado por Vera Farmiga e Patrick Wilson, a produção centra-se 
+                em dois investigadores paranormais mundialmente conhecidos, que foram contratados para investigar 
+                fenômenos sobrenaturais que assombram à família Perron, moradores da pequena e isolada cidade de 
+                Harrisville. No Brasil, sua estreia ocorreu no dia 13 de setembro de 2013." />
+			</h:panelGrid>
+		</p:fieldset>
+		
+	</h:form>
+
+	<ui:insert name="conteudo">Espaço para o conteúdo da tela.</ui:insert>
+
+	<div id="footer" style="text-align: center; color: white;">
+		<hr />
+		&copy; 2017 Matheus Soares. Todos os direitos
+		reservados.
+	</div>
+
+</h:body>
+</html>

@@ -1,0 +1,105 @@
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+		<h1 style="margin-top: 0; color: white; text-align: center;">FILMES</h1>
+		
+		<p:tabView>
+			<p:tab title="Invocação do Mal 1">
+				<h:panelGrid columns="2" cellpadding="10">
+					<img src="/Projeto3B/Images/img.jpg" />
+					<h:outputText
+						value="Harrisville, Estados Unidos. Um casal (Ron Livinston e Lili Taylor) 
+                    muda para uma casa nova ao lado de suas cinco filhas. Inexplicavelmente, 
+                    estranhos acontecimentos começam a assustar as crianças, o pai e, 
+                    principalmente, a mãe. Preocupada com algumas manchas que aparecem em seu corpo 
+                    e com uma sequência de sustos que levou, ela decide procurar um famoso casal 
+                    de investigadores paranormais (Patrick Wilson e Vera Farmiga), mas eles não aceitam o convite, 
+                    acreditando ser somente mais um engano de pessoas apavoradas com canos que fazem barulhos 
+                    durante a noite ou coisas do gênero. Porém, quando eles aceitam fazer uma visita ao local, 
+                    descobrem que algo muito poderoso e do mal reside ali. Agora, eles precisam descobrir o que é 
+                    e o porquê daquilo tudo acontecendo com os membros daquela família. É quando o passado começa 
+                    a revelar uma entidade demoníaca querendo continuar sua trajetória de maldades." />
+				</h:panelGrid>
+			</p:tab>
+			<p:tab title="Invocação do Mal 2">
+				<h:panelGrid columns="2" cellpadding="10">
+					<img src="/Projeto3B/Images/img3.jpg" />
+					<h:outputText
+						value="Sete anos após os eventos de Invocação do Mal (2013), 
+                Lorraine (Vera Farmiga) e Ed Warren (Patrick Wilson) desembarcam na Inglaterra 
+                para ajudar uma família atormentada por uma manifestação poltergeist na filha. 
+                A trama é baseada no caso Enfield Poltergeist, 
+                registrado no final da década de 1970." />
+				</h:panelGrid>
+			</p:tab>
+		</p:tabView>
+		<br />
+		<p:carousel numVisible="1" effect="easeInStrong" headerText="Elenco"
+			style="margin-bottom:0">
+			<p:tab title="Invocação do Mal 1">
+				<h:panelGrid columns="4" cellpadding="10">
+					<img src="/Projeto3B/Images/vf.jpg" />
+					<img src="/Projeto3B/Images/rl.jpg" />
+					<img src="/Projeto3B/Images/lt.jpg" />
+					<img src="/Projeto3B/Images/rl.jpg" />
+					<img src="/Projeto3B/Images/pw.jpg" />
+					<img src="/Projeto3B/Images/sk.jpg" />
+				</h:panelGrid>
+			</p:tab>
+			<p:tab title="Invocação do Mal 2">
+				<h:panelGrid columns="4" cellpadding="10">
+					<img src="/Projeto3B/Images/hm.jpg" />
+					<img src="/Projeto3B/Images/kd.jpg" />
+					<img src="/Projeto3B/Images/mf.jpg" />
+					<img src="/Projeto3B/Images/sc.jpg" />
+				</h:panelGrid>
+			</p:tab>
+		</p:carousel>
+
+		<h:panelGrid columns="4" cellpadding="5" style="color: white">
+
+			<p:outputLabel for="button" value="Data de visita ao site:" />
+			<p:calendar id="button" value="#{exercicioMBean.date1}"
+				showOn="button" />
+
+			<h:outputText value="Qual o filme que você gostou mais da sinopse?" />
+			<p:selectOneButton value="#{exercicioMBean.option}">
+				<f:selectItem itemLabel="Invocação do Mal 1" itemValue="IM1" />
+				<f:selectItem itemLabel="Invocação do Mal 2" itemValue="IM2" />
+			</p:selectOneButton>
+
+			<p:outputLabel for="console"
+				value="Qual você ficou com mais vontade de assistir?" />
+			<p:selectOneRadio id="console" value="#{exercicioMBean.console}">
+				<f:selectItem itemLabel="Invocação do Mal 1" itemValue="IM1" />
+				<f:selectItem itemLabel="Invocação do Mal 2" itemValue="IM2" />
+			</p:selectOneRadio>
+
+			<h:outputText value="Dê uma classificação as informações do site:" />
+			<p:rating value="#{exercicioMBean.rating2}" stars="5" cancel="false"
+				onRate="alert('Você avaliou em ' + value + ' estrelas o nosso conteúdo, OBRIGADO!')" />
+
+			<p:growl showDetail="true" sticky="true" />
+			<p:panel header="Sobre o site">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="msg" value="Defina o site em uma palavra:" />
+					<p:inputText id="msg" value="#{growlView.message}" required="true" />
+				</h:panelGrid>
+				<p:commandButton value="Registrar"
+					actionListener="#{growlView.saveMessage}" update="growl" />
+			</p:panel>
+
+			<p:growl id="growl" life="2000" />
+			<p:commandButton value="Salvar campos preenchidos" id="withIcon"
+				actionListener="#{buttonView.buttonAction}" update="growl"
+				icon="ui-icon-disk" />
+
+		</h:panelGrid>
+	</ui:define>
+	
+</ui:composition>

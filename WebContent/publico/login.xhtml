@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
+<!DOCTYPE html>
+	
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo">
+		
+		<div class="jumbotron" style="margin-top: 0; text-align: center; color: white;">
+	      <div class="container">
+	        <h1>Bem-vindo!</h1>
+	        <p>
+	        	Para acessar o site insira seus dados de login!
+	        </p>
+	      </div>
+	    </div>
+	    
+	    <div class="container" style="margin-top: 0; text-align: center; color: white;">
+    		<h:form styleClass="form-signin" id="form-login">
+		        
+		        <div class="form-group row">
+			        <label for="inputEmail" class="sr-only">Email*: </label>
+			        <p:inputText value="#{loginMBean.usuario.email}" placeholder="Email"
+			    			styleClass="form-control" required="true">
+			    		<f:validateLength minimum="50"/>
+			    	</p:inputText>
+		        </div>
+		        
+		        <div class="form-group row">
+			        <label for="inputPassword" class="sr-only">Senha*: </label>
+			        <p:password value="#{loginMBean.usuario.senha}" placeholder="Senha"
+				    			styleClass="form-control" id="inputPassword" required="true">
+				    		<f:validateLength minimum="7" maximum = "10"/>
+				    </p:password>
+		        </div>
+		        <br/>
+		        <div class="form-group row">
+			        <h:commandButton styleClass="btn btn-lg btn-primary btn-block" action="#{loginMBean.autenticar}"
+				            	value="Entrar">
+				            <f:ajax event="click" execute="form-login"/>
+				    </h:commandButton>
+			    </div>
+			    <br/>
+	    	</h:form>
+	    	
+	    	<a href="/Projeto3B/CRUD's/cadastrarusuario.xhtml">Não tem login? Cadastre-se aqui!</a>
+	    	
+	      </div>
+	    
+	</ui:define>
+
+</ui:composition>
